@@ -9,8 +9,8 @@ using homeChores.Models;
 namespace homeChores.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201228181228_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201228204000_ChoreScaffolding")]
+    partial class ChoreScaffolding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,24 @@ namespace homeChores.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
+
+            modelBuilder.Entity("homeChores.Models.Chore", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chore");
+                });
 #pragma warning restore 612, 618
         }
     }

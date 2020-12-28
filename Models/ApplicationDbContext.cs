@@ -9,5 +9,7 @@ namespace homeChores.Models
         {
 
         }
+
+        public DbSet<Chore> Chore { get; set; }
     }
 }
