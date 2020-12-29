@@ -1,1 +1,20 @@
 <h1>Chores</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chore in @Model)
+        {
+            <tr>
+                <td>@chore.Name</td>
+                <td>@chore.Level</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

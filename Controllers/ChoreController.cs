@@ -1,13 +1,39 @@
+using homeChores.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Encodings.Web;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace homeChores.Controllers
 {
     public class ChoreController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public ChoreController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Chore.ToListAsync());
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var chore = await _context.Chore.FindAsync(id);
+
+            if(chore == null)
+            {
+                return NotFound();
+            }
+
+            return View(chore);
+            
         }
     }
 }
