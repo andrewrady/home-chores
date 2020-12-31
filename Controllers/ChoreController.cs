@@ -18,6 +18,25 @@ namespace homeChores.Controllers
             return View(await _context.Chore.ToListAsync());
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Chore chore)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            _context.Chore.Add(chore);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if(id == null)
