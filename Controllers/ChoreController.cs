@@ -37,6 +37,7 @@ namespace homeChores.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if(id == null)
@@ -52,7 +53,40 @@ namespace homeChores.Controllers
             }
 
             return View(chore);
-            
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Edit(int id, Chore chore)
+        {
+            if(id != chore.Id)
+            {
+                return NotFound();
+            }
+
+            if(ModelState.IsValid)
+            {
+                _context.Update(chore);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Edit));
+            }
+
+            return RedirectToAction(nameof(Edit));
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var chore = _context.FindAsync(id);
+
+            if(chore == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(chore);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
