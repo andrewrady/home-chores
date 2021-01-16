@@ -74,7 +74,7 @@ namespace homeChores.Controllers
             return RedirectToAction(nameof(Edit));
         }
 
-        [HttpDelete]
+        [HttpPost]
         public async Task<IActionResult> Delete(int? id)
         {
             if(id == null)
