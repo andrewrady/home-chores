@@ -55,7 +55,7 @@ namespace homeChores.Controllers
             return View(chore);
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Edit(int id, Chore chore)
         {
             if(id != chore.Id)
@@ -68,16 +68,22 @@ namespace homeChores.Controllers
                 _context.Update(chore);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Edit));
+                return RedirectToAction(nameof(Index));
             }
 
             return RedirectToAction(nameof(Edit));
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            var chore = _context.FindAsync(id);
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var chore = await _context.Chore
+                .FirstOrDefaultAsync(c => c.Id == id);
 
             if(chore == null)
             {
