@@ -22,6 +22,7 @@ namespace homeChores.Models
         }
 
         public DbSet<Chore> Chore { get; set; }
+        public DbSet<Chores> Chores { get; set; }
         public DbSet<AppUser> AppUser { get; set;}
     }
 }
