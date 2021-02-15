@@ -1,3 +1,4 @@
+using home_chores.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -21,5 +22,6 @@ namespace homeChores.Models
         }
 
         public DbSet<Chore> Chore { get; set; }
+        public DbSet<AppUser> AppUser { get; set;}
     }
 }

@@ -2,9 +2,11 @@ using homeChores.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace homeChores.Controllers
 {
+    [Authorize]
     public class ChoreController : Controller
     {
         private readonly ApplicationDbContext _context;
