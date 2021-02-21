@@ -1,11 +1,12 @@
-using home_chores.Models;
+using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace homeChores.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+  public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,6 +24,7 @@ namespace homeChores.Models
 
         public DbSet<Chore> Chore { get; set; }
         public DbSet<Chores> Chores { get; set; }
-        public DbSet<AppUser> AppUser { get; set;}
+        public DbSet<AppUser> AppUsers { get; set;}
+        public DbSet<AppRole> AppRoles { get; set; }
     }
 }

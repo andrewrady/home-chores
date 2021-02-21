@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace home_chores.Models
+
+namespace homeChores.Models
 {
-    public class AppUser : IdentityUser
+    public class AppUser : IdentityUser<string>
     {
         public string FirstName { get; set; }                
         public string LastName { get; set; }

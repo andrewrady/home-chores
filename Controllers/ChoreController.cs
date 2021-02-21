@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace homeChores.Controllers
 {
-    [Authorize]
+    // [Authorize]
     public class ChoreController : Controller
     {
         private readonly ApplicationDbContext _context;

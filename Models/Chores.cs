@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace home_chores.Models
+namespace homeChores.Models
 {
     public class Chores
     {
