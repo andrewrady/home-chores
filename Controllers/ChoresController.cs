@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 
-namespace home_chores.Controllers
+namespace homeChores.Controllers
 {
-    // [Authorize]
+    [Authorize]
     public class ChoresController : Controller
     {
         private readonly ApplicationDbContext _context;

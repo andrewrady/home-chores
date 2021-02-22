@@ -17,7 +17,5 @@ namespace homeChores.Models
         public DateTime Completed { get; set; }
         [ForeignKey("UserId")]
         public int UserId { get; set; }
-        
-        
     }
 }
