@@ -1,6 +1,12 @@
-<h1>Assign Chore</h1>
+@model homeChores.Models.AssignChore
 
-@foreach (var user in @Model.AppUsers)
-{
-  <p>@user.UserName Name: @user.FirstName</p>
-}
+<h1>Assign Chore</h1>
+<form asp-action="Create">
+  <label asp-for="User">Users</label>
+  <select asp-for="User" asp-items="@Model.AppUsers"></select>
+
+  <label asp-for="Chore">Chore</label>
+  <select asp-for="Chore" asp-items="@Model.Chores"></select>
+
+  <input type="submit" value="Create">
+</form>

@@ -7,6 +7,7 @@ namespace homeChores.Models
 {
     public class AppUser : IdentityUser<string>
     {
+        public int UserId { get; set; }
         public string FirstName { get; set; }                
         public string LastName { get; set; }
         public ICollection<Chores> Chores { get; set; }
