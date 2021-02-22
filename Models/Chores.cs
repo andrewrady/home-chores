@@ -15,7 +15,7 @@ namespace homeChores.Models
         [Range(0, 10)]
         public int Level { get; set; }
         public DateTime Completed { get; set; }
-        [ForeignKey("AppUser")]
+        [ForeignKey("UserId")]
         public int UserId { get; set; }
         
         
