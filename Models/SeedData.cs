@@ -38,7 +38,7 @@ namespace homeChores.Models
                 if(!context.AppUsers.Any())
                 {
                     var hasher = new PasswordHasher<AppUser>();
-                
+
                     context.AppUsers.AddRange(
                         new AppUser
                         {
