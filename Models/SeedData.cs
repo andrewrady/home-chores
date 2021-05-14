@@ -46,7 +46,7 @@ namespace homeChores.Models
                             Email = "test1@gmail.com",
                             FirstName = "Bruce",
                             LastName = "Wayne",
-                            PasswordHash = hasher.HashPassword(null, "password")
+                            PasswordHash = hasher.HashPassword(null, "Password1!")
                         },
                         new AppUser
                         {
@@ -54,11 +54,11 @@ namespace homeChores.Models
                             Email = "test2@gmail.com",
                             FirstName = "Clark",
                             LastName = "Kent",
-                            PasswordHash = hasher.HashPassword(null, "password")
+                            PasswordHash = hasher.HashPassword(null, "Password1!")
                         }
                     );
                 }
-                
+
                 context.SaveChanges();
             }
                     
